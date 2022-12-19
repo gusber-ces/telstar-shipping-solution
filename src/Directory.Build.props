@@ -1,0 +1,14 @@
+<Project>
+  <PropertyGroup>
+    <Authors>Netcompany Foundation</Authors>
+    <Company>Netcompany</Company>
+  </PropertyGroup>
+  <PropertyGroup>
+	<TargetFramework>net6.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+</Project>

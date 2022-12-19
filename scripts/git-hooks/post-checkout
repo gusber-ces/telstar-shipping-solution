@@ -1,0 +1,3 @@
+#!/bin/sh
+
+scripts/2-update-nuget-trusted-authors.bat
