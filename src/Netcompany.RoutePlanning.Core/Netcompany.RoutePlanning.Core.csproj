@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Netcompany.Net.Cqs.Commands" Version="0.0.0.1" />
+    <PackageReference Include="Netcompany.Net.Cqs.Queries" Version="0.0.0.1" />
+    <PackageReference Include="Netcompany.Net.Cqs.ServiceCollectionExtensions" Version="0.0.0.4" />
+    <PackageReference Include="Netcompany.Net.DomainDrivenDesign.EntityFrameworkCore.ServiceCollectionExtensions" Version="0.0.0.1" />
+    <PackageReference Include="Netcompany.Net.DomainDrivenDesign.ServiceCollectionExtensions" Version="0.0.0.1" />
+  </ItemGroup>
+
 </Project>
