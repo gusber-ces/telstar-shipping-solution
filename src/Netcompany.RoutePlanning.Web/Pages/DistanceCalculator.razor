@@ -4,53 +4,20 @@
 
 <h1>Distance Calculator</h1>
 
-<Selector Label="Source" Options="@locations" @bind-Selected="inputSource"></Selector>
-<Selector Label="Destination" Options="@locations" @bind-Selected="inputDestination"></Selector>
+<LocationSelector Label="Source" Locations="@Locations" @bind-Selected="SelectedSource"></LocationSelector>
+<LocationSelector Label="Destination" Locations="@Locations" @bind-Selected="SelectedDestination"></LocationSelector>
 
 <button class="btn btn-primary mb-5" @onclick="CalculateDistance">Calculate</button>
 
 <br />
 
-@if (displayDistance is not null)
+@if (DisplayDistance is not null)
 {
     <span class="alert alert-primary">
-        <span>@displaySource</span>
+        <span>@DisplaySource</span>
         <span class="oi oi-arrow-right mr-1" aria-hidden="true"></span>
-        <span>@displayDistance</span><span>km</span>
+        <span>@DisplayDistance km</span>
         <span class="oi oi-arrow-right" aria-hidden="true"></span>
-        <span>@displayDestination</span>
+        <span>@DisplayDestination</span>
     </span>
-}
-
-@code {
-    private string[]? locations;
-
-    private string? inputSource;
-
-    private string? inputDestination;
-
-    private string? displaySource;
-
-    private string? displayDestination;
-
-    private int? displayDistance;
-
-    protected override Task OnInitializedAsync()
-    {
-        locations = new[] { "Aalborg", "Copenhagen" };
-
-        return Task.CompletedTask;
-    }
-
-    protected Task CalculateDistance()
-    {
-        if (inputSource is not null && inputDestination is not null)
-        {
-            displaySource = inputSource;
-            displayDestination = inputDestination;
-            displayDistance = 123;
-        }
-
-        return Task.CompletedTask;
-    }
 }

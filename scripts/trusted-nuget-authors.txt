@@ -3,3 +3,5 @@ dotnetfoundation
 aspnet
 khellang
 pengweiqhca
+ericsink
+SQLitePCLRaw

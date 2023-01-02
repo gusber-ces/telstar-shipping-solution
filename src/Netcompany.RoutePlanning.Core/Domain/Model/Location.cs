@@ -1,7 +1,9 @@
-﻿using Netcompany.Net.DomainDrivenDesign.Models;
+﻿using System.Diagnostics;
+using Netcompany.Net.DomainDrivenDesign.Models;
 
 namespace Netcompany.RoutePlanning.Core.Domain.Model;
 
+[DebuggerDisplay("{Name}")]
 public class Location : AggregateRoot
 {
     public Location(string name)

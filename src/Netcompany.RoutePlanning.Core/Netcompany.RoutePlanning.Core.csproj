@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Netcompany.Net.Cqs.Commands" Version="0.0.0.1" />
-    <PackageReference Include="Netcompany.Net.Cqs.Queries" Version="0.0.0.1" />
-    <PackageReference Include="Netcompany.Net.Cqs.ServiceCollectionExtensions" Version="0.0.0.4" />
     <PackageReference Include="Netcompany.Net.DomainDrivenDesign.EntityFrameworkCore.ServiceCollectionExtensions" Version="0.0.0.1" />
     <PackageReference Include="Netcompany.Net.DomainDrivenDesign.ServiceCollectionExtensions" Version="0.0.0.1" />
+    <PackageReference Include="Netcompany.Net.Middleware.UnhandledExceptions" Version="0.0.0.2" />
+    <PackageReference Include="Netcompany.Net.UnitOfWork.AmbientTransactions.ServiceCollectionExtensions" Version="0.0.0.1" />
+    <PackageReference Include="Netcompany.Net.UnitOfWork.Cqs.ServiceCollectionExtensions" Version="0.0.0.2" />
+    <PackageReference Include="Netcompany.Net.Validation" Version="0.0.0.1" />
+    <PackageReference Include="Netcompany.Net.Validation.Exceptions" Version="0.0.0.1" />
   </ItemGroup>
 
 </Project>

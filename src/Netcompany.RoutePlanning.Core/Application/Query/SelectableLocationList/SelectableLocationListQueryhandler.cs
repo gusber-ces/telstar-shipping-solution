@@ -1,13 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Netcompany.Net.Cqs.Queries;
+using Netcompany.RoutePlanning.Core.Domain.Model;
 
 namespace Netcompany.RoutePlanning.Core.Application.Query.SelectableLocationList;
 
 public class SelectableLocationListQueryhandler : IQueryHandler<SelectableLocationListQuery, IReadOnlyList<SelectableLocation>>
 {
-    private readonly IQueryable<Domain.Model.Location> _locations;
+    private readonly IQueryable<Location> _locations;
 
-    public SelectableLocationListQueryhandler(IQueryable<Domain.Model.Location> locations)
+    public SelectableLocationListQueryhandler(IQueryable<Location> locations)
     {
         _locations = locations;
     }

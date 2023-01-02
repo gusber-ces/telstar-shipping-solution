@@ -11,5 +11,7 @@ public class ConnectionConfiguration : EntityConfiguration<Connection>
         base.Configure(builder);
 
         builder.HasOne(x => x.Destination).WithMany();
+
+        builder.OwnsOne(x => x.Distance);
     }
 }
