@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication.Negotiate;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -6,6 +7,7 @@ using Netcompany.Net.UnitOfWork;
 using Netcompany.RoutePlanning.Core;
 using Netcompany.RoutePlanning.Core.Database;
 using Netcompany.RoutePlanning.Core.Domain.Model;
+using Netcompany.RoutePlanning.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +15,12 @@ builder.Services
     .AddAuthentication(NegotiateDefaults.AuthenticationScheme)
     .AddNegotiate();
 
-builder.Services.AddAuthorization(options => options.FallbackPolicy = options.DefaultPolicy);
+builder.Services.AddSingleton<IAuthorizationHandler, TokenRequirementHandler>();
+builder.Services.AddAuthorization(options =>
+{
+    var apiToken = builder.Configuration.GetValue<string>("ApiToken")!;
+    options.AddPolicy(nameof(TokenRequirement), policy => policy.AddRequirements(new TokenRequirement(apiToken)));
+});
 
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
@@ -41,6 +48,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapControllers();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
