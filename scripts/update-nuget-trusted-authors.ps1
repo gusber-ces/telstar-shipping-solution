@@ -8,5 +8,5 @@ $joinedTrustedAuthors = $trustedAuthors -join ";"
 dotnet nuget trust source nuget --owners "$($joinedTrustedAuthors)" --configfile ../src/nuget.config
 Write-Host "Updated trusted package authors"
 
-Write-Host "Done - press enter to close"
+Write-Host "`nDone - press enter to close" -ForegroundColor Green
 Read-Host
