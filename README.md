@@ -1,6 +1,6 @@
 # CES - Route-planning accelerator
 
-This accelerator is intended to be a great start for CES projects, while showcasing some of the functionality and best practices from [Netcompany .NET Foundation](https://goto.netcompany.com/cases/GTE1579/NCDOTNET).
+This accelerator is intended to be a great start for CES projects, while showcasing some of the functionality and best practices from [Netcompany Foundation for .NET](https://goto.netcompany.com/cases/GTE1579/NCDOTNET).
 
 The accelerator contains:
 - Domain model with locations and connections.
