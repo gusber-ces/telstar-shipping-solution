@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Netcompany.RoutePlanning.Core.Application.Command.CreateTwoWayConnection;
+using Netcompany.RoutePlanning.Web.Authorization;
 
 namespace Netcompany.RoutePlanning.Web.Api;
 

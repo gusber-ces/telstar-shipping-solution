@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 
-namespace Netcompany.RoutePlanning.Web;
+namespace Netcompany.RoutePlanning.Web.Authorization;
 
 public record TokenRequirement(string Token) : IAuthorizationRequirement;
 
