@@ -12,9 +12,7 @@ The accelerator contains:
 
 ## Getting started
 
-1. Run the `script/setup-artifactory-use.bat` script to authenticate access to the Netcompany Foundation NuGet repository. You will be prompted for your NCDMZ password.
-2. Run the `script/update-nuget-trusted-authors.bat` script to set the trusted authors for NuGet.
-   - Note that if you later need to add new NuGet packages, you will have to add the package authors to `script/trusted-nuget-authors.txt` and run the script again.
-3. Open the `src/Netcompany.RoutePlanning.sln` solution in Visual Studio.
-4. Start the `Netcompany.RoutePlanning.Web` project (**F5** is the default shortcut)
-5. Once you have the solution running it will show further information to get you started. Good luck :)
+1. Run the `/script/setup-artifactory-use.bat` script to authenticate access to the Netcompany Foundation NuGet repository. You will be prompted for your NCDMZ password.
+2. Open the `src/RoutePlanning.sln` solution in Visual Studio.
+3. Start the `RoutePlanning.Web` project (**F5** is the default shortcut)
+4. Once you have the solution running it will show further information to get you started. Good luck :)
