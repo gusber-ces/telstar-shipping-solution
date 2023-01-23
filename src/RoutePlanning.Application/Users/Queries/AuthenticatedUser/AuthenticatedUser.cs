@@ -2,4 +2,4 @@
 
 namespace RoutePlanning.Application.Users.Queries.AuthenticatedUser;
 
-public sealed record AuthenticatedUser(User.UserId Id, string Username);
+public sealed record AuthenticatedUser(User.EntityId Id, string Username);

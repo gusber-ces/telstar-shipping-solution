@@ -1,14 +1,11 @@
 ﻿using System.Diagnostics;
 using Netcompany.Net.DomainDrivenDesign.Models;
-using static RoutePlanning.Domain.Locations.Connection;
 
 namespace RoutePlanning.Domain.Locations;
 
 [DebuggerDisplay("{Source} --{Distance}--> {Destination}")]
-public sealed class Connection : Entity<ConnectionId>
+public sealed class Connection : Entity<Connection>
 {
-    public sealed record ConnectionId : EntityId;
-
     public Connection(Location source, Location destination, Distance distance)
     {
         Source = source;

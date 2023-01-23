@@ -2,4 +2,4 @@
 
 namespace RoutePlanning.Application.Locations.Queries.SelectableLocationList;
 
-public sealed record SelectableLocation(Location.LocationId LocationId, string Name);
+public sealed record SelectableLocation(Location.EntityId LocationId, string Name);

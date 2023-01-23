@@ -2,15 +2,12 @@
 using System.Security.Cryptography;
 using System.Text;
 using Netcompany.Net.DomainDrivenDesign.Models;
-using static RoutePlanning.Domain.Users.User;
 
 namespace RoutePlanning.Domain.Users;
 
 [DebuggerDisplay("{Username}")]
-public sealed class User : AggregateRoot<UserId>
+public sealed class User : AggregateRoot<User>
 {
-    public sealed record UserId : EntityId;
-
     public User(string username, string passwordHash)
     {
         Username = username;

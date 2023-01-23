@@ -1,14 +1,11 @@
 ﻿using System.Diagnostics;
 using Netcompany.Net.DomainDrivenDesign.Models;
-using static RoutePlanning.Domain.Locations.Location;
 
 namespace RoutePlanning.Domain.Locations;
 
 [DebuggerDisplay("{Name}")]
-public sealed class Location : AggregateRoot<LocationId>
+public sealed class Location : AggregateRoot<Location>
 {
-    public sealed record LocationId : EntityId;
-
     public Location(string name)
     {
         Name = name;
