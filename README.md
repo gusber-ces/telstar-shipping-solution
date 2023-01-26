@@ -12,7 +12,7 @@ The accelerator contains:
 
 ## Getting started
 
-1. Run the `/script/setup-docker-login.bat` script to authenticate access to the Netcompany Foundation Docker repository. You have to be on the NC-network (office/VPN) and you will be prompted for your NCDMZ password.
-2. Open the `src/RoutePlanning.sln` solution in Visual Studio.
-3. Start the `RoutePlanning.Web` project (**F5** is the default shortcut)
-4. Once you have the solution running it will show further information to get you started. Good luck :)
+1. Open the `src/RoutePlanning.sln` solution in Visual Studio.
+   - You have to be on the NC-network (office/VPN) to fetch the Foundation dependencies, which will prompt you for your NCDMZ credentials.
+2. Start the `RoutePlanning.Web` project (**F5** is the default shortcut)
+3. Once you have the solution running it will show further information to get you started. Good luck :)
