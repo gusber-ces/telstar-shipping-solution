@@ -29,15 +29,17 @@ var app = builder.Build();
 
 await DatabaseInitialization.SeedDatabase(app);
 
-app.UseUnhandledExceptionMiddleware();
+if (app.Environment.IsProduction())
+{
+    app.UseUnhandledExceptionMiddleware();
+}
+
 app.UseValidationMiddleware();
-
-app.UseAuthentication();
-app.UseAuthorization();
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapControllers();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
