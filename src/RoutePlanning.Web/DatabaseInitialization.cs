@@ -20,7 +20,7 @@ public static class DatabaseInitialization
             await SeedUsers(context);
             await SeedLocationsAndRoutes(context);
 
-            await unitOfWork.SaveChanges(CancellationToken.None);
+            unitOfWork.Commit();
         }
     }
 
