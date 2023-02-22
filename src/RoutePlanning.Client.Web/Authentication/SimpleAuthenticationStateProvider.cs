@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 
-namespace RoutePlanning.Web.Authentication;
+namespace RoutePlanning.Client.Web.Authentication;
 
 public sealed class SimpleAuthenticationStateProvider : AuthenticationStateProvider
 {

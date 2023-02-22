@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Components;
 using MediatR;
 using RoutePlanning.Application.Users.Queries.AuthenticatedUser;
-using RoutePlanning.Web.Authentication;
+using RoutePlanning.Client.Web.Authentication;
 
-namespace RoutePlanning.Web.Pages.Core;
+namespace RoutePlanning.Client.Web.Pages.Core;
 
 public sealed partial class LoginDisplay
 {

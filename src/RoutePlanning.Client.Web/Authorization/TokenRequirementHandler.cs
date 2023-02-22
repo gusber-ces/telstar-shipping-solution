@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 
-namespace RoutePlanning.Web.Authorization;
+namespace RoutePlanning.Client.Web.Authorization;
 
 public sealed record TokenRequirement(string Token) : IAuthorizationRequirement;
 

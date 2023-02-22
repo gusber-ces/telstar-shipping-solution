@@ -4,8 +4,8 @@ using Netcompany.Net.Logging.Serilog;
 using Netcompany.Net.UnitOfWork;
 using Netcompany.Net.Validation;
 using RoutePlanning.Application;
+using RoutePlanning.Client.Web;
 using RoutePlanning.Infrastructure;
-using RoutePlanning.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +23,7 @@ builder.Services.AddSimpleAuthentication();
 builder.Services.AddApiTokenAuthorization(builder.Configuration);
 
 builder.Host.ConfigureLogging(loggingBuilder => loggingBuilder.ClearProviders());
-builder.Host.UseNetcompanyLogging(nameof(RoutePlanning.Web));
+builder.Host.UseNetcompanyLogging(nameof(RoutePlanning.Client.Web));
 
 var app = builder.Build();
 

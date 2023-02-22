@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using RoutePlanning.Application.Locations.Queries.SelectableLocationList;
 
-namespace RoutePlanning.Web.Shared;
+namespace RoutePlanning.Client.Web.Shared;
 
 public sealed partial class LocationSelector
 {

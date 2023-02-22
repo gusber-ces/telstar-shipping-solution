@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
-using RoutePlanning.Web.Authentication;
-using RoutePlanning.Web.Authorization;
+using RoutePlanning.Client.Web.Authentication;
+using RoutePlanning.Client.Web.Authorization;
 
-namespace RoutePlanning.Web;
+namespace RoutePlanning.Client.Web;
 
 public static class ServiceCollectionExtensions
 {

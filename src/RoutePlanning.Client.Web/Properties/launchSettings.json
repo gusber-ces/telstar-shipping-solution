@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "RoutePlanning.Web": {
+    "RoutePlanning.Client.Web": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

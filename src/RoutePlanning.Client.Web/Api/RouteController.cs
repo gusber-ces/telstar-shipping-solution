@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RoutePlanning.Application.Locations.Commands.CreateTwoWayConnection;
-using RoutePlanning.Web.Authorization;
+using RoutePlanning.Client.Web.Authorization;
 
-namespace RoutePlanning.Web.Api;
+namespace RoutePlanning.Client.Web.Api;
 
 [Route("api/[controller]")]
 [ApiController]

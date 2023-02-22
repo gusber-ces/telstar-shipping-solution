@@ -13,8 +13,8 @@ The accelerator contains:
 ## Getting started
 
 1. Ensure that you are on the NC-network (office/VPN) which is required to fetch the Foundation dependencies.
-2. Open the `src/RoutePlanning.sln` solution in Visual Studio.
+2. Open the `RoutePlanning.sln` solution in Visual Studio.
 3. You will be prompted for credentials to `repo.netcompany.com`. Use your NCDMZ credentials **without the "ncdmz\\" part!**
    - Note that if you select "Remember my password", it will be saved in *Windows Credential Manager*.
-4. Start the `RoutePlanning.Web` project. (**F5** is the default shortcut)
+4. Start the `RoutePlanning.Client.Web` project. (**F5** is the default shortcut)
 5. Once you have the solution running it will show further information to get you started. Good luck :)

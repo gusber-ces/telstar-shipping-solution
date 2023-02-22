@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 using RoutePlanning.Application.Locations.Queries.Distance;
 using RoutePlanning.Application.Locations.Queries.SelectableLocationList;
 
-namespace RoutePlanning.Web.Pages;
+namespace RoutePlanning.Client.Web.Pages;
 
 public sealed partial class DistanceCalculator
 {

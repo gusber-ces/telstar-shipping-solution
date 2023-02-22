@@ -1,4 +1,4 @@
-﻿namespace RoutePlanning.Web.Pages.Core;
+﻿namespace RoutePlanning.Client.Web.Pages.Core;
 
 public sealed partial class NavMenu
 {

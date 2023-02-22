@@ -3,7 +3,7 @@ using RoutePlanning.Domain.Locations;
 using RoutePlanning.Domain.Users;
 using RoutePlanning.Infrastructure.Database;
 
-namespace RoutePlanning.Web;
+namespace RoutePlanning.Client.Web;
 
 public static class DatabaseInitialization
 {
