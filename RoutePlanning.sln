@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E6447730
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoutePlanning.Domain.UnitTests", "tests\RoutePlanning.Domain.UnitTests\RoutePlanning.Domain.UnitTests.csproj", "{B096898A-5D40-48E2-B714-7E515FF72A42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutePlanning.Client.Web.ApiTests", "tests\RoutePlanning.Client.Web.ApiTests\RoutePlanning.Client.Web.ApiTests.csproj", "{1AA1CBC8-20AD-47A7-826F-9E081ADE08AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,12 +48,17 @@ Global
 		{B096898A-5D40-48E2-B714-7E515FF72A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B096898A-5D40-48E2-B714-7E515FF72A42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B096898A-5D40-48E2-B714-7E515FF72A42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AA1CBC8-20AD-47A7-826F-9E081ADE08AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AA1CBC8-20AD-47A7-826F-9E081ADE08AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AA1CBC8-20AD-47A7-826F-9E081ADE08AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AA1CBC8-20AD-47A7-826F-9E081ADE08AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B096898A-5D40-48E2-B714-7E515FF72A42} = {E6447730-25D6-4761-90AA-07B5F9F373F5}
+		{1AA1CBC8-20AD-47A7-826F-9E081ADE08AD} = {E6447730-25D6-4761-90AA-07B5F9F373F5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {455AE411-1032-41A2-A8AD-42EB78F3DF18}

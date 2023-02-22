@@ -9,7 +9,7 @@ namespace RoutePlanning.Client.Web.Api;
 [Route("api/[controller]")]
 [ApiController]
 [Authorize(nameof(TokenRequirement))]
-public sealed class RoutesController : Controller
+public sealed class RoutesController : ControllerBase
 {
     private readonly IMediator _mediator;
 
@@ -19,15 +19,14 @@ public sealed class RoutesController : Controller
     }
 
     [HttpGet("[action]")]
-    public IActionResult HelloWorld()
+    public Task<string> HelloWorld()
     {
-        return Ok("Hello world");
+        return Task.FromResult("Hello World!");
     }
 
     [HttpPost("[action]")]
-    public async Task<IActionResult> AddTwoWayConnection(CreateTwoWayConnectionCommand command)
+    public async Task AddTwoWayConnection(CreateTwoWayConnectionCommand command)
     {
         await _mediator.Send(command);
-        return Ok();
     }
 }

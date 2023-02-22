@@ -4,44 +4,51 @@ using Netcompany.Net.Logging.Serilog;
 using Netcompany.Net.UnitOfWork;
 using Netcompany.Net.Validation;
 using RoutePlanning.Application;
-using RoutePlanning.Client.Web;
 using RoutePlanning.Infrastructure;
 
-var builder = WebApplication.CreateBuilder(args);
+namespace RoutePlanning.Client.Web;
 
-builder.Services.AddRoutePlanningInfrastructure();
-builder.Services.AddRoutePlanningApplication();
-
-builder.Services.AddCqs(options => options.UseValidation().UseUnitOfWork());
-builder.Services.AddUnhandledExceptionMiddleware();
-builder.Services.AddValidationMiddleware();
-
-builder.Services.AddRazorPages();
-builder.Services.AddServerSideBlazor();
-
-builder.Services.AddSimpleAuthentication();
-builder.Services.AddApiTokenAuthorization(builder.Configuration);
-
-builder.Host.ConfigureLogging(loggingBuilder => loggingBuilder.ClearProviders());
-builder.Host.UseNetcompanyLogging(nameof(RoutePlanning.Client.Web));
-
-var app = builder.Build();
-
-await DatabaseInitialization.SeedDatabase(app);
-
-if (app.Environment.IsProduction())
+public sealed class Program
 {
-    app.UseUnhandledExceptionMiddleware();
+    public static async Task Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
+
+        builder.Services.AddRoutePlanningInfrastructure();
+        builder.Services.AddRoutePlanningApplication();
+
+        builder.Services.AddCqs(options => options.UseValidation().UseUnitOfWork());
+        builder.Services.AddUnhandledExceptionMiddleware();
+        builder.Services.AddValidationMiddleware();
+
+        builder.Services.AddRazorPages();
+        builder.Services.AddServerSideBlazor();
+
+        builder.Services.AddSimpleAuthentication();
+        builder.Services.AddApiTokenAuthorization(builder.Configuration);
+
+        builder.Host.ConfigureLogging(loggingBuilder => loggingBuilder.ClearProviders());
+        builder.Host.UseNetcompanyLogging(nameof(Web));
+
+        var app = builder.Build();
+
+        await DatabaseInitialization.SeedDatabase(app);
+
+        if (app.Environment.IsProduction())
+        {
+            app.UseUnhandledExceptionMiddleware();
+        }
+
+        app.UseValidationMiddleware();
+        app.UseHttpsRedirection();
+        app.UseStaticFiles();
+        app.UseRouting();
+        app.UseAuthentication();
+        app.UseAuthorization();
+        app.MapControllers();
+        app.MapBlazorHub();
+        app.MapFallbackToPage("/_Host");
+
+        app.Run();
+    }
 }
-
-app.UseValidationMiddleware();
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-app.UseRouting();
-app.UseAuthentication();
-app.UseAuthorization();
-app.MapControllers();
-app.MapBlazorHub();
-app.MapFallbackToPage("/_Host");
-
-app.Run();
