@@ -5,6 +5,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CC9E9C20-FE95-4EA5-A2FE-51149F58FC4A}"
 	ProjectSection(SolutionItems) = preProject
 		Directory.Build.props = Directory.Build.props
+		src\nuget.config = src\nuget.config
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -20,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E6447730
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoutePlanning.Domain.UnitTests", "tests\RoutePlanning.Domain.UnitTests\RoutePlanning.Domain.UnitTests.csproj", "{B096898A-5D40-48E2-B714-7E515FF72A42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutePlanning.Client.Web.ApiTests", "tests\RoutePlanning.Client.Web.ApiTests\RoutePlanning.Client.Web.ApiTests.csproj", "{1AA1CBC8-20AD-47A7-826F-9E081ADE08AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoutePlanning.Client.Web.ApiTests", "tests\RoutePlanning.Client.Web.ApiTests\RoutePlanning.Client.Web.ApiTests.csproj", "{1AA1CBC8-20AD-47A7-826F-9E081ADE08AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
