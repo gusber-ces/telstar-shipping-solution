@@ -27,8 +27,7 @@ public sealed class Program
         builder.Services.AddSimpleAuthentication();
         builder.Services.AddApiTokenAuthorization(builder.Configuration);
 
-        builder.Host.ConfigureLogging(loggingBuilder => loggingBuilder.ClearProviders());
-        builder.Host.UseNetcompanyLogging(nameof(Web));
+        builder.Host.ConfigureLoggingDefaults();
 
         var app = builder.Build();
 
