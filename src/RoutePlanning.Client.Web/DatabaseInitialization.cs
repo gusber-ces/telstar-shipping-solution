@@ -1,8 +1,11 @@
 ﻿using Netcompany.Net.UnitOfWork;
+using RoutePlanning.Client.Web.Pages;
+using RoutePlanning.Domain;
 using Npgsql;
 using RoutePlanning.Domain.Locations;
 using RoutePlanning.Domain.Users;
 using RoutePlanning.Infrastructure.Database;
+using Route = RoutePlanning.Domain.Locations.Route;
 
 namespace RoutePlanning.Client.Web;
 
@@ -20,6 +23,7 @@ public static class DatabaseInitialization
         {
             await SeedUsers(context);
             await SeedLocationsAndRoutes(context);
+            await seedBookings(context);
 
             unitOfWork.Commit();
         }
@@ -149,6 +153,48 @@ public static class DatabaseInitialization
         CreateTwoWayConnection(darfur, suakin, 4);
         CreateTwoWayConnection(suakin, addisAbeba, 3);
         CreateTwoWayConnection(addisAbeba, kapGuardafui, 3);
+    }
+
+    private static async Task seedBookings(RoutePlanningDatabaseContext context)
+    {
+        var dimensions1 = new Dimensions(weight: 10, height: 20, width: 15, length: 25);
+        var route1 = new RoutePlanning.Domain.Locations.Route(new Location("Cairo"), new Location("Zanzibar"),
+            new Distance(100));
+        var route2 = new RoutePlanning.Domain.Locations.Route(new Location("Cairo"), new Location("Zanzibar"),
+            new Distance(200));
+        var routes1 = new List<Route> { route1, route2 };
+        var dimensions2 = new Dimensions(weight: 5, height: 10, width: 8, length: 12);
+        var categories1 = new List<Category> { Category.LiveAnimals, Category.Weapons };
+        var categories2 = new List<Category> { Category.Weapons, Category.CautiousParcels };
+        var booking1 = new Booking(
+            id: 1,
+            origin: "New York",
+            destination: "Los Angeles",
+            departure: new DateTime(2023, 6, 1, 9, 0, 0), // Departure on June 1, 2023 at 9:00
+            arrivalDeadline: new DateTime(2023, 6, 5, 18, 0, 0), // Arrival deadline on June 5, 2023 at 18:00
+            price: 200,
+            package: new Package(dimensions: dimensions1,
+                categories: categories1,
+                recorded: true),
+            routes: routes1
+        );
+        await context.AddAsync(booking1);
+        
+        var booking2 = new Booking(
+            id: 2,
+            origin: "New York",
+            destination: "Los Angeles",
+            departure: new DateTime(2023, 6, 1, 9, 0, 0), // Departure on June 1, 2023 at 9:00
+            arrivalDeadline: new DateTime(2023, 6, 5, 18, 0, 0), // Arrival deadline on June 5, 2023 at 18:00
+            price: 200,
+            package: new Package(dimensions: dimensions1,
+                categories: categories2,
+                recorded: true),
+            routes: routes1
+        );
+        await context.AddAsync(booking2);
+        
+        await context.SaveChangesAsync();
     }
 
     private static async Task SeedUsers(RoutePlanningDatabaseContext context)
