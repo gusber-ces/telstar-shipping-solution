@@ -1,0 +1,64 @@
+﻿@page "/confirmation/{RouteId:int}"
+<link href="css/SearchResult.css" rel="stylesheet" />
+<h2 style="text-align: center">Confirmation</h2>
+
+<span>Confirmtion code: dsdsadsa </span>
+
+@if (Routes != null)
+{
+    foreach (var route in Routes)
+    {
+        <div class="card mb-3 routeCard">
+            <div class="card-header">
+                <div class="row">
+                    <!-- Locations Column -->
+                    <div class="col-md-8">
+                        @foreach (var location in (route.Locations ?? throw new InvalidOperationException()))
+                        {
+                            <div class="locationContainer">
+                                <div class="locationDot"></div>
+                                <span class="locationName">@location.Name</span>
+                            </div>
+                            if (location != route.Locations.Last())
+                            {
+                                <div class="dottedLine">
+                                    <div class="smallDot"></div>
+                                    <div class="smallDot"></div>
+                                    <div class="smallDot"></div>
+                                </div>
+                            }
+                        }
+                    </div>
+
+                    <!-- Tags Column -->
+                    <div class="col-md-4">
+                        @if (route.Tags != null)
+                        {
+                            foreach (var tag in route.Tags)
+                            {
+                                <span class="tag @GetTagClass(tag.tag)">@tag.tag</span>
+                            }
+                        }
+                    </div>
+                </div>
+
+                <div class="row bottomPart mt-3">
+                    <div class="col-md-4">
+                        Total time in transit: <br/>
+                        <span class="infTxt"> @route.TravelTime </span>
+                    </div>
+                    <div class="col-md-4">
+                        Price: <br/>
+                        <span class="infTxt"> $@route.Price.ToString()  </span>
+                    </div>
+                    <div class="col-md-4">
+                        Weight: <br/>
+                        <span class="infTxt"> @route.Weight.ToString() KG </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+}
+

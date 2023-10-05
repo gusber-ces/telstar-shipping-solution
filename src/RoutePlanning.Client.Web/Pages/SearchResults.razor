@@ -58,7 +58,8 @@
                     <span class="infTxt"> @route.Price.ToString("C") </span>
                 </div>
                 <div class="col-md-4">
-                    <button class="btn btn-primary cardBtn">Book shipping</button>
+                    <button class="btn btn-primary cardBtn" @onclick="() => GoToConfirmation(route.Id)">Book shipping</button>
+
                 </div>
             </div>
 
