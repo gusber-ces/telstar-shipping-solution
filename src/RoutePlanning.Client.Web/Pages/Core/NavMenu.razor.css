@@ -8,6 +8,11 @@
 }
 .navbar-nav {
     flex-direction: row !important; /* Force row direction */
+    justify-content: flex-start !important; /* Align items to the left */
+}
+
+.container-fluid{
+    justify-content: flex-start !important; /* Align items to the left */
 }
 
 .navbar-brand {
