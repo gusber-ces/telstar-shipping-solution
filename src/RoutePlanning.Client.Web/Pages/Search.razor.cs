@@ -60,7 +60,10 @@ namespace RoutePlanning.Client.Web.Pages
             FormData[4] = $"Height: {Height}, Length: {Length}, Depth: {Depth}"; // Combined dimensions
             FormData[5] = string.Join(", ", SelectedCategories); // Combined selected categories
             FormData[6] = IsRecommended;
+<<<<<<< HEAD
             
+=======
+>>>>>>> b3076e2 (Style changes)
             var categories = new List<Category>();
         
         
