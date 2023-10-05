@@ -36,15 +36,16 @@ namespace RoutePlanning.Client.Web.Pages
         
         private DateTime DepartureTime { get; set; } = DateTime.Now;
         private DateTime ArrivalDeadline { get; set; } = DateTime.Now;
-        private string Weight { get; set; } = "";
         private string Category { get; set; } = "LiveAnimals";
         private bool IsRecommended { get; set; } = false;
 
         // When you click Submit, for now just a placeholder function
-        private object[] FormData { get; set; } = new object[7]; // 7 is the number of fields
-        public string? Height { get; set; }
-        public string? Length { get; set; }
-        public string? Depth { get; set; }
+        private object[] FormData { get; set; } = new object[9]; // 7 is the number of fields
+        
+        public double Weight { get; set; }
+        public double Height { get; set; }
+        public double Length { get; set; }
+        public double Depth { get; set; }
 
         private List<string> Categories { get; set; } = new() { "General", "Live Animal", "Fragile Goods" };
         private List<string> SelectedCategories { get; set; } = new();
@@ -70,7 +71,7 @@ namespace RoutePlanning.Client.Web.Pages
             FormData[1] = Destination;
             FormData[2] = DepartureTime;
             FormData[3] = ArrivalDeadline;
-            FormData[4] = $"Height: {Height}, Length: {Length}, Depth: {Depth}"; // Combined dimensions
+            FormData[4] = $"Weight: {Weight} Height: {Height}, Length: {Length}, Depth: {Depth}"; // Combined dimensions
             FormData[5] = string.Join(", ", SelectedCategories); // Combined selected categories
             FormData[6] = IsRecommended;
             var categories = new List<Category>();
@@ -79,7 +80,7 @@ namespace RoutePlanning.Client.Web.Pages
             categories.Add(Domain.Category.LiveAnimals);
 
             var p = SearchService.GetRoutes(Origin, Destination, ArrivalDeadline, new Package(
-                    new Dimensions(40, 0, 0, 0),
+                    new Dimensions(Weight, Height, Length, Depth),
                     categories,
                     IsRecommended
                 )
