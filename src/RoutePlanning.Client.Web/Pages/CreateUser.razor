@@ -1,0 +1,38 @@
+﻿@page "/createuser"
+
+<PageTitle>Search</PageTitle>
+
+<h1>Goods Transfer Form</h1>
+    
+<form>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" @bind="Username"/>
+    </div>
+    
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" @bind="Password"/>
+    </div>
+    
+    <div class="form-group">
+        <label for="pame">Name</label>
+        <input type="text" id="pame" @bind="Name"/>
+    </div>
+    
+    <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" @bind="Phone"/>
+    </div>
+    
+    <div class="form-group">
+        <label for="roleDropdown">Role</label>
+        <select id="roleDropdown" @bind="Role">
+            <option value="Admin">Admin</option>
+            <option value="Employee">Employee</option>
+        </select>
+    </div>
+    
+    <!-- Submit Button -->
+    <button class="btn btn-primary" @onclick="SubmitForm">Create user</button>
+</form>
