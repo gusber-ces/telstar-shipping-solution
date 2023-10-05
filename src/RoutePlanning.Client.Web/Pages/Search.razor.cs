@@ -40,14 +40,14 @@ namespace RoutePlanning.Client.Web.Pages
         private bool IsRecommended { get; set; } = false;
 
         // When you click Submit, for now just a placeholder function
-        private object[] FormData { get; set; } = new object[9]; // 7 is the number of fields
+        private object[] FormData { get; set; } = new object[7]; // 7 is the number of fields
         
         public double Weight { get; set; }
         public double Height { get; set; }
         public double Length { get; set; }
         public double Depth { get; set; }
 
-        private List<string> Categories { get; set; } = new() { "General", "Live Animal", "Fragile Goods" };
+        private List<string> Categories { get; set; } = new() { "General", "LiveAnimals","CautiousProducts", "RefrigeratedGoods" };
         private List<string> SelectedCategories { get; set; } = new();
         private void HandleCategoryChange(ChangeEventArgs e, string category)
         {

@@ -38,14 +38,14 @@ public class SearchService
             return new List<(Route, double)>();
         }
         
-        var shortestRoute = _shortestDistanceService.CalculateShortestDistance(originLocation, destinationLocation);
-        if (arrivalDeadline < DateTime.Now.AddHours(shortestRoute.Sum(c => c.Distance)))
+        var shortestPath = _shortestDistanceService.CalculateShortestDistance(originLocation, destinationLocation);
+        if (arrivalDeadline < DateTime.Now.AddHours(shortestPath.Sum(c => c.Distance)))
         {
             return new List<(Route, double)>();
-        }  
+        }
 
         // Calculate the price for each route and return a tuple of Route and Price
-        var routesWithPrice = shortestRoute.Select(r => (route: r, price: PriceService.CalculatePrice(package) * r.Distance));
+        var routesWithPrice = shortestPath.Select(r => (route: r, price: PriceService.CalculatePrice(package, r.Distance)));
 
         return routesWithPrice;
     }

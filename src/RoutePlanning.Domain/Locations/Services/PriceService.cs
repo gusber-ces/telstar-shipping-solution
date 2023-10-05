@@ -4,10 +4,14 @@ namespace RoutePlanning.Domain.Locations.Services;
 
 public static class PriceService
 {
-    public static double CalculatePrice(Package package)
+    public static double CalculatePrice(Package package, int distance)
     {
-        double price = 3;
-        if (package.Recorded) { price += 10; }
+        double price = 3 * distance;
+        
+        if (package.Recorded)
+        {
+            price += 10;
+        }
         
         if (package.Categories.Contains(Category.LiveAnimals)) { price *= 1.5; }
 
