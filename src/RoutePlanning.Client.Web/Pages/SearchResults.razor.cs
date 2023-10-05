@@ -45,14 +45,6 @@ namespace RoutePlanning.Client.Web.Pages
                         {
                             new Tags { tag = "Cheapest" }, new Tags { tag = "Telstar exclusive" },
                         }
-                    Tags = new List<Tags>
-                    {
-                        new Tags { tag = "Cheapest" },
-                        new Tags { tag = "Telstar exclusive" },
-                    },
-                    Id = 1
-                    
-
                 },
                 new Route
                 {
