@@ -3,24 +3,24 @@ using Netcompany.Net.DomainDrivenDesign.Models;
 
 namespace RoutePlanning.Domain.Locations;
 
-[DebuggerDisplay("{Source} --{Distance}--> {Destination}")]
-public sealed class Connection : Entity<Connection>
+[DebuggerDisplay("{Origin} --{Distance}--> {Destination}")]
+public sealed class Route : Entity<Route>
 {
-    public Connection(Location source, Location destination, Distance distance)
+    public Route(Location origin, Location destination, Distance distance)
     {
-        Source = source;
+        Origin = origin;
         Destination = destination;
         Distance = distance;
     }
 
-    private Connection()
+    private Route()
     {
-        Source = null!;
+        Origin = null!;
         Destination = null!;
         Distance = null!;
     }
 
-    public Location Source { get; private set; }
+    public Location Origin { get; private set; }
 
     public Location Destination { get; private set; }
 

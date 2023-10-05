@@ -13,16 +13,16 @@ public sealed class Location : AggregateRoot<Location>
 
     public string Name { get; set; }
 
-    private readonly List<Connection> _connections = new();
+    private readonly List<Route> _connections = new();
 
-    public IReadOnlyCollection<Connection> Connections => _connections.AsReadOnly();
+    public IReadOnlyCollection<Route> Connections => _connections.AsReadOnly();
 
-    public Connection AddConnection(Location destination, int distance)
+    public Route AddConnection(Location destination, int distance)
     {
-        Connection connection = new(this, destination, distance);
+        Route route = new(this, destination, distance);
 
-        _connections.Add(connection);
+        _connections.Add(route);
 
-        return connection;
+        return route;
     }
 }

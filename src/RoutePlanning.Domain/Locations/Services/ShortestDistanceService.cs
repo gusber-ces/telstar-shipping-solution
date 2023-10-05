@@ -23,7 +23,7 @@ public sealed class ShortestDistanceService : IShortestDistanceService
     /// <summary>
     /// An implementation of the Dijkstra's shortest path algorithm
     /// </summary>
-    private static IEnumerable<Connection> CalculateShortestPath(IEnumerable<Location> locations, Location start, Location end)
+    private static IEnumerable<Route> CalculateShortestPath(IEnumerable<Location> locations, Location start, Location end)
     {
         var shortestConnections = CalculateShortestConnections(locations, start, end);
 
@@ -35,9 +35,9 @@ public sealed class ShortestDistanceService : IShortestDistanceService
     /// <summary>
     /// An implementation of the Dijkstra's algorithm that computes the shortest connections to all locations until the end location is reached
     /// </summary>
-    private static Dictionary<Location, (Connection? SourceConnection, int Distance)> CalculateShortestConnections(IEnumerable<Location> locations, Location start, Location end)
+    private static Dictionary<Location, (Route? SourceConnection, int Distance)> CalculateShortestConnections(IEnumerable<Location> locations, Location start, Location end)
     {
-        var shortestConnections = new Dictionary<Location, (Connection? SourceConnection, int Distance)>();
+        var shortestConnections = new Dictionary<Location, (Route? SourceConnection, int Distance)>();
         var unvisitedLocations = locations.ToHashSet();
 
         foreach (var location in unvisitedLocations)
@@ -67,29 +67,29 @@ public sealed class ShortestDistanceService : IShortestDistanceService
         return shortestConnections;
     }
 
-    private static void UpdateShortestConnections(Dictionary<Location, (Connection? SourceConnection, int Distance)> shortestConnections, Location location, Connection connection)
+    private static void UpdateShortestConnections(Dictionary<Location, (Route? SourceConnection, int Distance)> shortestConnections, Location location, Route route)
     {
-        var distance = shortestConnections[location].Distance + connection.Distance;
+        var distance = shortestConnections[location].Distance + route.Distance;
 
-        if (distance < shortestConnections[connection.Destination].Distance)
+        if (distance < shortestConnections[route.Destination].Distance)
         {
-            shortestConnections[connection.Destination] = (SourceConnection: connection, Distance: distance);
+            shortestConnections[route.Destination] = (SourceConnection: route, Distance: distance);
         }
     }
 
     /// <summary>
     /// The shortest path is constructed by backtracking the Dijkstra connection data from the end location
     /// </summary>
-    private static IEnumerable<Connection> ConstructShortestPath(Location start, Location end, Dictionary<Location, (Connection? SourceConnection, int Distance)> sourceConnections)
+    private static IEnumerable<Route> ConstructShortestPath(Location start, Location end, Dictionary<Location, (Route? SourceConnection, int Distance)> sourceConnections)
     {
-        var path = new List<Connection>();
+        var path = new List<Route>();
         var location = end;
 
         while (location != start)
         {
             var shortestConnection = sourceConnections[location].SourceConnection!;
             path.Add(shortestConnection);
-            location = shortestConnection.Source;
+            location = shortestConnection.Origin;
         }
 
         path.Reverse();
