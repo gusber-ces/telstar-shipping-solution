@@ -84,6 +84,7 @@ namespace RoutePlanning.Client.Web.Pages
                     IsRecommended
                 )
             );
+            SearchService.SetRoutes(p);
             Console.WriteLine(p);
             // Placeholder: Here, you can process or store the FormData as needed
             // For demonstration purposes, I'll just print the array to the console (useful for debugging)

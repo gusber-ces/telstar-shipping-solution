@@ -24,6 +24,7 @@ namespace RoutePlanning.Client.Web.Pages
 
         protected override void OnInitialized()
         {
+           
             // Dummy data
             Routes = new List<Route>
             {

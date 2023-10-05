@@ -9,11 +9,11 @@ public static class PriceService
         double price = 3;
         if (package.Recorded) { price += 10; }
         
-        if (package.Categories.Contains(Category.LiveAnimals)) { price += price * 0.5; }
+        if (package.Categories.Contains(Category.LiveAnimals)) { price *= 1.5; }
 
-        if (package.Categories.Contains(Category.CautiousParcels)) { price += price * 0.75; }
+        if (package.Categories.Contains(Category.CautiousParcels)) { price *= 1.7; }
 
-        if (package.Categories.Contains(Category.RefrigeratedGoods)) { price += price * 0.1; }
+        if (package.Categories.Contains(Category.RefrigeratedGoods)) { price *= 1.1; }
 
         return price;
     }
