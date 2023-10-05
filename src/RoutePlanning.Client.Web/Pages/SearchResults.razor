@@ -1,70 +1,73 @@
 ﻿@page "/searchresults"
+@using RoutePlanning.Domain.Locations.Services
+@inject SearchService SearchService
 <link href="css/SearchResult.css" rel="stylesheet" />
-
-<div class="card-container">
-<div class="alert alert-info" id="searchInfoBox">
-    @(((Routes ?? throw new InvalidOperationException()).First().Locations ?? throw new InvalidOperationException()).First().Name)
-    &rarr;
-    @((Routes.First().Locations ?? throw new InvalidOperationException()).Last().Name) <br />
-    @Routes.First().Date.ToShortDateString() <br />
-    @Routes.First().Category
-</div>
-<br/><br/>
-
-@foreach (var route in Routes)
-{
-    
-    <div class="card mb-3 routeCard">
-        <div class="card-header">
-            <div class="row">
-                <!-- Locations Column -->
-                <div class="col-md-8">
-                    @foreach (var location in (route.Locations ?? throw new InvalidOperationException()))
-                    {
-                        <div class="locationContainer">
-                            <div class="locationDot"></div>
-                            <span class="locationName">@location.Name</span>
-                        </div>
-                        @if (location != route.Locations.Last())
-                        {
-                            <div class="dottedLine">
-                                <div class="smallDot"></div>
-                                <div class="smallDot"></div>
-                                <div class="smallDot"></div>
-                            </div>
-                        }
-                    }
-                </div>
-
-                <!-- Tags Column -->
-                <div class="col-md-4">
-                    @if (route.Tags != null)
-                    {
-                        foreach (var tag in route.Tags)
-                        {
-                            <span class="tag @GetTagClass(tag.tag)">@tag.tag</span>
-                        }
-                    }
-                </div>
-            </div>
-
-            <div class="row bottomPart mt-3">
-                <div class="col-md-4">
-                    Total time in transit: <br/> 
-                    <span class="infTxt"> @route.TravelTime </span>
-                </div>
-                <div class="col-md-4">
-                    Price: <br/> 
-                    <span class="infTxt"> @route.Price.ToString("C") </span>
-                </div>
-                <div class="col-md-4">
-                    <button class="btn btn-primary cardBtn" @onclick="() => GoToConfirmation(route.Id)">Book shipping</button>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
+@{
+    var routes = SearchService.GetRoutes().ToList();
 }
+<div class="card-container">
+    <div class="alert alert-info" id="searchInfoBox">
+    </div>
+    @if (!routes.Any())
+    {
+        <div class="alert alert-warning" role="alert">
+            No routes found.
+        </div>
+    } else {
+<br/><br/>
+        <div class="card mb-3 routeCard">
+            <div class="card-header">
+                <div class="row">
+                    <!-- Locations Column -->
+                    <div class="locationContainer">
+                        <div class="locationDot"></div>
+                        <span class="locationName">@routes.First().route.Origin.Name</span>
+                    </div>
+                    <div class="dottedLine">
+                        <div class="smallDot"></div>
+                        <div class="smallDot"></div>
+                        <div class="smallDot"></div>
+                    </div>
+                    <div class="col-md-8">
+                        @foreach ((Domain.Locations.Route route, double price) in routes)
+                        {
+                            <div class="locationContainer">
+                                <div class="locationDot"></div>
+                                <span class="locationName">@route.Destination.Name</span>
+                            </div>
+                            @if (route != routes.Last().route)
+                            {
+                                <div class="dottedLine">
+                                    <div class="smallDot"></div>
+                                    <div class="smallDot"></div>
+                                    <div class="smallDot"></div>
+                                </div>
+                            }
+                        }
+                    </div>
+
+                    <!-- Tags Column -->
+                    <div class="col-md-4">
+                    </div>
+                </div>
+
+                <div class="row bottomPart mt-3">
+                    <div class="col-md-4">
+                        Total time in transit: <br/> 
+                        <span class="infTxt"> @(routes.Sum(r => r.route.Distance)) hours </span>
+                    </div>
+                    <div class="col-md-4">
+                        Price: <br/> 
+                        <span class="infTxt"> @(routes.Sum(c => c.price))$ </span>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-primary cardBtn" @onclick="() => GoToConfirmation(1)">Book shipping</button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
 </div>
 

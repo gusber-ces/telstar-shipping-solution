@@ -9,6 +9,18 @@ public class SearchService
     private readonly IQueryable<Route> _routes;
 
     private readonly IQueryable<Location> _locations;
+    
+    private IEnumerable<(Route route, double price)>? _foundRoutes = null;  // Change Route to your actual type
+
+    public void SetRoutes(IEnumerable<(Route route, double price)> path)
+    {
+        _foundRoutes = path;
+    }
+    
+    public IEnumerable<(Route route, double price)> GetRoutes()
+    {
+        return _foundRoutes ?? throw new ArgumentNullException();
+    }
 
     public SearchService(IShortestDistanceService shortestDistanceService, IQueryable<Route> routes, IQueryable<Location> locations)
     {
@@ -26,13 +38,11 @@ public class SearchService
             return new List<(Route, double)>();
         }
         
-        var routes = _routes.Include(r => r.Origin).Include(r => r.Destination).ToList();
-        
-            var shortestRoute = _shortestDistanceService.CalculateShortestDistance(originLocation, destinationLocation);
-            if (arrivalDeadline < DateTime.Now.AddHours(shortestRoute.Sum(c => c.Distance)))
-            {
-                return new List<(Route, double)>();
-            }  
+        var shortestRoute = _shortestDistanceService.CalculateShortestDistance(originLocation, destinationLocation);
+        if (arrivalDeadline < DateTime.Now.AddHours(shortestRoute.Sum(c => c.Distance)))
+        {
+            return new List<(Route, double)>();
+        }  
 
         // Calculate the price for each route and return a tuple of Route and Price
         var routesWithPrice = shortestRoute.Select(r => (route: r, price: PriceService.CalculatePrice(package) * r.Distance));
