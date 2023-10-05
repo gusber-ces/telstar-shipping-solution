@@ -1,8 +1,12 @@
-﻿namespace RoutePlanning.Client.Web.Pages
+﻿using RoutePlanning.Domain;
+using RoutePlanning.Domain.Locations;
+
+namespace RoutePlanning.Client.Web.Pages
 {
     public partial class SearchResults
     {
         public List<Route>? Routes { get; set; }
+        public List<Booking>? Bookings { get; set; }
 
         protected override void OnInitialized()
         {
@@ -22,12 +26,11 @@
                     Category = "General",
                     Price = 100,
                     Date = DateTime.Now,
-                    Tags = new List<Tags>
-                    {
-                        new Tags { tag = "Cheapest" },
-                        new Tags { tag = "Telstar exclusive" },
-                    }
-
+                    Tags =
+                        new List<Tags>
+                        {
+                            new Tags { tag = "Cheapest" }, new Tags { tag = "Telstar exclusive" },
+                        }
                 },
                 new Route
                 {
