@@ -1,4 +1,8 @@
 ﻿@page "/search"
+@using RoutePlanning.Domain.Locations.Services
+@using RoutePlanning.Domain.Locations
+@inject SearchService SearchService
+@inject IQueryable<Location> Locations
 
 <PageTitle>Search</PageTitle>
 
@@ -10,9 +14,7 @@
     <div class="form-group">
         <label for="originDropdown">Origin</label>
         <select id="originDropdown" @bind="Origin">
-            <option value="CountryA">CountryA</option>
-            <option value="CountryB">CountryB</option>
-            <option value="CountryC">CountryC</option>
+            <option value="Mozambique">Mozambique</option>
         </select>
     </div>
 
@@ -20,9 +22,7 @@
     <div class="form-group">
         <label for="destinationDropdown">Destination</label>
         <select id="destinationDropdown" @bind="Destination">
-            <option value="CountryA">CountryA</option>
-            <option value="CountryB">CountryB</option>
-            <option value="CountryC">CountryC</option>
+            <option value="Tanger">Tanger</option>
         </select>
     </div>
 
