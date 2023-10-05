@@ -113,6 +113,8 @@ public static class DatabaseInitialization
         await context.SaveChangesAsync();
         
         CreateTwoWayConnection(kapstaden, hvalbugten, 4);
+        var kapHval = new Domain.Locations.Route(kapstaden, hvalbugten, 4);
+        await context.AddAsync(kapHval);
         CreateTwoWayConnection(hvalbugten, victoriafaldene, 4);
         CreateTwoWayConnection(victoriafaldene, dragebjerget, 3);
         CreateTwoWayConnection(victoriafaldene, mozambique, 5);
