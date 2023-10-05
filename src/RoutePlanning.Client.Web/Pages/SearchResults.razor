@@ -1,8 +1,6 @@
 ﻿@page "/searchresults"
 <link href="css/SearchResult.css" rel="stylesheet" />
 
-<h2>Summary:</h2>
-
 <div class="alert alert-info" id="searchInfoBox">
     @(((Routes ?? throw new InvalidOperationException()).First().Locations ?? throw new InvalidOperationException()).First().Name)
     &rarr;
@@ -10,10 +8,10 @@
     @Routes.First().Date.ToShortDateString() <br />
     @Routes.First().Category
 </div>
-
-<h2>Routes:</h2>
+<br/><br/>
 @foreach (var route in Routes)
 {
+    
     <div class="card mb-3 routeCard">
         <div class="card-header">
             <div class="row">

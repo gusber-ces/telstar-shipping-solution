@@ -81,19 +81,25 @@
     background-color: white;
     border: 1px solid darkgray;
     box-shadow: 1px 1px;
+    
 }
 
 @media (min-width: 641px) {
-    
-    
-    #locationName{
+
+
+    .routeCard{
+        font-size: 1.2em;
+        background-color: white;
+        border: 1px solid darkgray;
+        box-shadow: 1px 1px;
+        max-width: 70%;
         
     }
     
     #searchInfoBox{
         font-weight: bolder;
         font-size: 1.5em;
-        width: 80%;
+      
     }
     
     

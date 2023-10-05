@@ -7,6 +7,9 @@ namespace RoutePlanning.Client.Web.Pages;
 
 public sealed partial class SignIn
 {
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
+
     private string Username { get; set; } = string.Empty;
     private string Password { get; set; } = string.Empty;
     private AuthenticatedUser? User { get; set; }
@@ -27,6 +30,8 @@ public sealed partial class SignIn
         if (User is not null)
         {
             await AuthStateProvider.SetAuthenticationStateAsync(new UserSession(User.Username));
+            // Redirect to the search page
+            NavigationManager.NavigateTo("/search");
         }
     }
 

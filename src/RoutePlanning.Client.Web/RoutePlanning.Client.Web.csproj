@@ -22,6 +22,8 @@
 
   <ItemGroup>
     <None Include="wwwroot\css\searchResult.css" />
+    <None Include="wwwroot\Images\flag.png" />
+    <None Include="wwwroot\Images\logo.jpg" />
   </ItemGroup>
 
 </Project>

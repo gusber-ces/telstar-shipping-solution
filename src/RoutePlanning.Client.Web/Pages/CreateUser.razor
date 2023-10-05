@@ -1,33 +1,31 @@
 ﻿@page "/createuser"
+<link href="css/inputs.css" rel="stylesheet" />
 
-<PageTitle>Search</PageTitle>
-
-<h1>Goods Transfer Form</h1>
-    
+<div class="form-container">
 <form>
     <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" id="username" @bind="Username"/>
+        <input type="text" required class="customInput" id="username" @bind="Username"/>
     </div>
     
     <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" @bind="Password"/>
+        <input type="password" required id="password" @bind="Password"/>
     </div>
     
     <div class="form-group">
         <label for="pame">Name</label>
-        <input type="text" id="pame" @bind="Name"/>
+        <input type="text" required id="pame" @bind="Name"/>
     </div>
     
     <div class="form-group">
         <label for="phone">Phone</label>
-        <input type="text" id="phone" @bind="Phone"/>
+        <input type="text" required id="phone" @bind="Phone"/>
     </div>
     
     <div class="form-group">
         <label for="roleDropdown">Role</label>
-        <select id="roleDropdown" @bind="Role">
+        <select id="roleDropdown" required @bind="Role">
             <option value="Admin">Admin</option>
             <option value="Employee">Employee</option>
         </select>
@@ -36,3 +34,4 @@
     <!-- Submit Button -->
     <button class="btn btn-primary" @onclick="SubmitForm">Create user</button>
 </form>
+</div>

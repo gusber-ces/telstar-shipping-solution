@@ -1,0 +1,49 @@
+﻿/* Container for the form */
+.form-container {
+    display: flex !important;
+    justify-content: center; /* For horizontal centering */
+    align-items: center; /* For vertical centering */
+    width: 100vw; /* Take up the full viewport width */
+ 
+}
+
+/* The form itself */
+form {
+    max-width: 400px; /* Limit the width */
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 8px;
+    
+}
+
+/* Style for the form groups */
+.form-group {
+    margin-bottom: 20px; /* Some spacing between groups */
+}
+
+/* Common style for all inputs */
+input[type="text"], input[type="password"], select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Button styling */
+.btn {
+    padding: 10px 20px;
+    background-color: #003F87;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #002a5c; /* A slightly darker shade for hover effect */
+}

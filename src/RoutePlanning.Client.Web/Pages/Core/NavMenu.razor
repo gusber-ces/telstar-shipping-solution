@@ -1,62 +1,59 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@using RoutePlanning.Client.Web.Authentication
+@inject SimpleAuthenticationStateProvider AuthStateProvider
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href=""></a>
+
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
+     
 
         <div class="@NavMenuCssClass" >
             <nav class="navbar-nav">
                 <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                    <NavLink class="nav-link" href="search">
                         <span class="oi oi-home" aria-hidden="true"></span> Home
                     </NavLink>
                 </div>
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="distancecalculator">
-                        <span class="oi oi-signpost" aria-hidden="true"></span> Distance Calculator
-                    </NavLink>
-                </div>
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="signin">
-                        <span class="oi oi-signpost" aria-hidden="true"></span> loginn test
-                    </NavLink>
-                </div>
-                <div class="nav-item px-3">
-                            <NavLink class="nav-link" href="search">
-                                <span class="oi oi-signpost" aria-hidden="true"></span> search
-                            </NavLink>
-                        </div>
+                
                 
                 <div class="nav-item px-3">
                     <NavLink class="nav-link" href="searchresults">
-                        <span class="oi oi-signpost" aria-hidden="true"></span> search results
+                        <span class="oi oi-person" aria-hidden="true"></span> search results
                     </NavLink>
                 </div>
                 
                 <div class="nav-item px-3">
                     <NavLink class="nav-link" href="createuser">
-                        <span class="oi oi-signpost" aria-hidden="true"></span> Create new user
+                        <span class="oi oi-plus" aria-hidden="true"></span> Create new user
                     </NavLink>
                 </div>
-                
-                 <div class="nav-item px-3">
-                                    <NavLink class="nav-link" href="admin">
-                                        <span class="oi oi-signpost" aria-hidden="true"></span> Admin
-                                    </NavLink>
-                                </div>
-                
                 
                 <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="documentation">
-                        <span class="oi oi-document" aria-hidden="true"></span> Documentation
+                    <NavLink class="nav-link" href="admin">
+                        <span class="oi oi-person" aria-hidden="true"></span> Admin
                     </NavLink>
                 </div>
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="foundation">
-                        <span class="oi oi-puzzle-piece" aria-hidden="true"></span> NC Foundation
-                    </NavLink>
-                </div>
+                
+                 <!-- Add this block for displaying user info and logout button -->
+                        <AuthorizeView>
+                            <Authorized>
+                                <button class="btn btn-link navbar-text" @onclick="ToggleUserMenu">
+                                    @context.User.Identity?.Name!
+                                    <span class="oi oi-caret-bottom"></span>
+                                </button>
+                                @if (ShowUserMenu)
+                                {
+                                    <div class="dropdown-menu show" style="position:absolute; right:20px;">
+                                        <button class="dropdown-item" @onclick="Logout">Logout</button>
+                                    </div>
+                                }
+                            </Authorized>
+                        </AuthorizeView>
+                        <!-- End of user info and logout block -->
+                
             </nav>
         </div>
     </div>
