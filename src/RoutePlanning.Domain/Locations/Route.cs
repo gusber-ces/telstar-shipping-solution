@@ -4,7 +4,7 @@ using Netcompany.Net.DomainDrivenDesign.Models;
 namespace RoutePlanning.Domain.Locations;
 
 [DebuggerDisplay("{Origin} --{Distance}--> {Destination}")]
-public sealed class Route : AggregateRoot<Route>
+public sealed class Route : Entity<Route>
 {
     public Route(Location origin, Location destination, Distance distance)
     {
