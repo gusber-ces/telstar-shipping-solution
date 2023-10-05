@@ -14,8 +14,9 @@
     <div class="form-group">
         <label for="originDropdown">Origin</label>
         <select id="originDropdown" @bind="Origin">
-            @foreach(Location in Locations.ToList()) {
-            <option value="Mozambique">Mozambique</option>
+            @foreach(Location location in Locations.ToList()) {
+                <option value=@location.Name>@location.Name</option>
+            }
         </select>
     </div>
 
@@ -23,7 +24,9 @@
     <div class="form-group">
         <label for="destinationDropdown">Destination</label>
         <select id="destinationDropdown" @bind="Destination">
-            <option value="Tanger">Tanger</option>
+            @foreach(Location location in Locations.ToList()) {
+                            <option value=@location.Name>@location.Name</option>
+                        }
         </select>
     </div>
 
