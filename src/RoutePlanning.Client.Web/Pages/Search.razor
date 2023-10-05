@@ -9,7 +9,7 @@
 
 <div class="card-container">
 
-    
+    <div class="form">
     <!-- Origin Dropdown -->
     <div class="form-group">
         <label for="originDropdown">Origin</label>
@@ -44,15 +44,15 @@
         <input type="text" id="weight" @bind="Weight"/>
     </div>
     <div class="form-row">
-        <div class="form-group col-md-4">
+        <div class="form-group ">
             <label for="height">Height</label>
             <input type="text" id="height" @bind="Height" placeholder="Height" class="form-control"/>
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group ">
             <label for="length">Length</label>
             <input type="text" id="length" @bind="Length" placeholder="Length" class="form-control"/>
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group">
             <label for="depth">Depth</label>
             <input type="text" id="depth" @bind="Depth" placeholder="Depth" class="form-control"/>
         </div>
@@ -80,5 +80,5 @@
 
     <!-- Submit Button -->
     <button class="btn btn-primary" @onclick="SubmitForm">Search</button>
-
+    </div>
 </div>
