@@ -1,0 +1,65 @@
+﻿@page "/search"
+
+<PageTitle>Search</PageTitle>
+
+<h1>Goods Transfer Form</h1>
+    
+<form>
+
+    <!-- Origin Dropdown -->
+    <div class="form-group">
+        <label for="originDropdown">Origin</label>
+        <select id="originDropdown" @bind="Origin">
+            <option value="CountryA">CountryA</option>
+            <option value="CountryB">CountryB</option>
+            <option value="CountryC">CountryC</option>
+        </select>
+    </div>
+
+    <!-- Destination Dropdown -->
+    <div class="form-group">
+        <label for="destinationDropdown">Destination</label>
+        <select id="destinationDropdown" @bind="Destination">
+            <option value="CountryA">CountryA</option>
+            <option value="CountryB">CountryB</option>
+            <option value="CountryC">CountryC</option>
+        </select>
+    </div>
+
+    <!-- Departure Time -->
+    <div class="form-group">
+        <label for="departureTime">Departure time</label>
+        <input type="datetime-local" id="departureTime" @bind="DepartureTime"/>
+    </div>
+
+    <!-- Arrival Deadline -->
+    <div class="form-group">
+        <label for="arrivalDeadline">Arrival deadline</label>
+        <input type="datetime-local" id="arrivalDeadline" @bind="ArrivalDeadline"/>
+    </div>
+
+    <!-- Weight Input -->
+    <div class="form-group">
+        <label for="weight">Weight</label>
+        <input type="text" id="weight" @bind="Weight"/>
+    </div>
+
+    <!-- Category Dropdown -->
+    <div class="form-group">
+        <label for="categoryDropdown">Category</label>
+        <select id="categoryDropdown" @bind="Category">
+            <option value="general">General</option>
+            <option value="liveAnimal">Live Animal</option>
+            <option value="fragileGoods">Fragile Goods</option>
+        </select>
+    </div>
+
+    <!-- Recommended Checkbox -->
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="recommendedCheckbox" @bind="IsRecommended"/>
+        <label class="form-check-label" for="recommendedCheckbox">Recommended goods</label>
+    </div>
+
+    <!-- Submit Button -->
+    <button class="btn btn-primary" @onclick="SubmitForm">Submit</button>
+</form>

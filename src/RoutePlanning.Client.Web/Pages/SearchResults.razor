@@ -1,0 +1,27 @@
+﻿@page "/searchresults"
+
+<h2>Summary:</h2>
+<div class="alert alert-info">
+    <strong>Start:</strong> @(((Routes ?? throw new InvalidOperationException()).First().Locations ?? throw new InvalidOperationException()).First().Name) <br />
+    <strong>End:</strong> @((Routes.First().Locations ?? throw new InvalidOperationException()).Last().Name) <br />
+    <strong>Date:</strong> @Routes.First().Date.ToShortDateString() <br />
+    <strong>Category:</strong> @Routes.First().Category
+</div>
+
+<h2>Routes:</h2>
+@foreach (var route in Routes)
+{
+    <div class="card mb-3">
+        <div class="card-header">
+            <strong>Category:</strong> @route.Category | <strong>Price:</strong> @route.Price.ToString("C")
+        </div>
+        <div class="card-body">
+            @foreach (var location in (route.Locations ?? throw new InvalidOperationException()).SkipLast(1))
+            {
+                <span>@location.Name</span> <span class="oi oi-arrow-right ml-2 mr-2" aria-hidden="true"></span>
+            }
+            <span>@route.Locations.Last().Name</span> <br />
+            <strong>Travel Time:</strong> @route.TravelTime
+        </div>
+    </div>
+}

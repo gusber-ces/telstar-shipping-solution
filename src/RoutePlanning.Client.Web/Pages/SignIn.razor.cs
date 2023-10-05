@@ -3,9 +3,9 @@ using MediatR;
 using RoutePlanning.Application.Users.Queries.AuthenticatedUser;
 using RoutePlanning.Client.Web.Authentication;
 
-namespace RoutePlanning.Client.Web.Pages.Core;
+namespace RoutePlanning.Client.Web.Pages;
 
-public sealed partial class LoginDisplay
+public sealed partial class SignIn
 {
     private string Username { get; set; } = string.Empty;
     private string Password { get; set; } = string.Empty;
