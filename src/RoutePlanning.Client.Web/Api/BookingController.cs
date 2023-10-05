@@ -28,20 +28,7 @@ public sealed class BookingController : ControllerBase
         return bookings;
     }
     
-    [HttpDelete("{id}")]
-    public async Task<ActionResult<Booking>> DeleteBooking(int id)
-    {
-        var booking = await _context.Bookings.FindAsync(id);
-        if (booking == null)
-        {
-            return NotFound();
-        }
 
-        _context.Bookings.Remove(booking);
-        await _context.SaveChangesAsync();
-
-        return booking;
-    }
     
     
 
