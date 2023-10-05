@@ -1,0 +1,34 @@
+﻿body {
+    background-image: url("/Images/flag.png");
+}
+
+.signin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    
+}
+.signin-child{
+    background-color: white;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 400px; /* Adjust as per your requirement */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center children horizontally */
+}
+
+.signin-child input.form-control,
+.signin-child .error,
+.signin-child button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.logo-img {
+    max-width: 100%;
+    margin-bottom: 20px;
+}

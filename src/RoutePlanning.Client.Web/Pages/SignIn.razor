@@ -1,18 +1,32 @@
 ﻿@page "/signin"
-<AuthorizeView>
-    <NotAuthorized>
-        <div class="row g-1">
+<link href="css/signin.css" rel="stylesheet" />
+
+
+<div class="signin-container">
+    <div class="signin-child">
+    <img src="/Images/logo.jpg" alt="Company Logo" class="logo-img"/>
+    <AuthorizeView>
+        <NotAuthorized>
             @if (ShowAuthError)
             {
-                <div class="col-auto"><div class="error text-danger m-2">Invalid login credentials</div></div>
+                <div class="error text-danger m-2">Invalid login credentials</div>
             }
-            <div class="col"><input type="text" placeholder="Username" class="form-control" @bind-value="Username"></input></div>
-            <div class="col"><input type="password" class="form-control" placeholder="Password" @bind-value="Password"></input></div>
-            <div class="col-auto"><button class="btn btn-primary" @onclick="Login">Login</button></div>
-        </div>
-    </NotAuthorized>
-    <Authorized>
-        <span class="m-2">Hello, @context.User.Identity?.Name!</span>
-        <button class="btn btn-primary ml-2" @onclick="Logout">Logout</button>
-    </Authorized>
-</AuthorizeView>
+            <div>
+                <input type="text" placeholder="Username" class="form-control" @bind-value="Username"></input>
+            </div>
+            <div>
+                <input type="password" class="form-control" placeholder="Password" @bind-value="Password"></input>
+            </div>
+            <div>
+                <button class="btn btn-primary" @onclick="Login">Login</button>
+            </div>
+        </NotAuthorized>
+        <Authorized>
+            <span class="m-2">Hello, @context.User.Identity?.Name!</span>
+            <div>
+                <button class="btn btn-primary ml-2" @onclick="Logout">Logout</button>
+            </div>
+        </Authorized>
+    </AuthorizeView>
+    </div>
+</div>

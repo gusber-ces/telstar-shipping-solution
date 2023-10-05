@@ -1,30 +1,17 @@
-using RoutePlanning.Domain;
-using RoutePlanning.Domain.Locations;
-
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 
 namespace RoutePlanning.Client.Web.Pages
 {
-    
-    public partial class SearchResults
+    public partial class Confirmation
     {
-        [Inject]
-        public NavigationManager? NavManager { get; set; }
-        
-        private void GoToConfirmation(int routeId)
-        {
-            if (NavManager != null)
-            {
-                NavManager.NavigateTo($"/confirmation/{routeId}");
-            }
-        }
+        [Parameter]
+        public int RouteId { get; set; }
         
         public List<Route>? Routes { get; set; }
-        public List<Booking>? Bookings { get; set; }
 
         protected override void OnInitialized()
         {
-            // Dummy data
+
             Routes = new List<Route>
             {
                 new Route
@@ -40,40 +27,16 @@ namespace RoutePlanning.Client.Web.Pages
                     Category = "General",
                     Price = 100,
                     Date = DateTime.Now,
-                    Tags =
-                        new List<Tags>
-                        {
-                            new Tags { tag = "Cheapest" }, new Tags { tag = "Telstar exclusive" },
-                        }
                     Tags = new List<Tags>
                     {
-                        new Tags { tag = "Cheapest" },
-                        new Tags { tag = "Telstar exclusive" },
+                        new Tags { tag = "Cheapest" }, new Tags { tag = "Telstar exclusive" },
                     },
-                    Id = 1
-                    
-
-                },
-                new Route
-                {
-                    Locations = new List<Location>
-                    {
-                        new Location { Name = "Location A" },
-                        new Location { Name = "Location B" },
-                        new Location { Name = "Location C" },
-                        new Location { Name = "Location D" }
-                    },
-                    TravelTime = "10 hours",
-                    Category = "General",
-                    Price = 100,
-                    Date = DateTime.Now,
-                    Tags = new List<Tags>
-                    {
-                        new Tags { tag = "Fastest" }
-                    },
-                    Id = 2
+                    Id = 1,
+                    Weight = 10
                 }
             };
+
+            Console.WriteLine(RouteId);
         }
 
         public class Route
@@ -84,6 +47,8 @@ namespace RoutePlanning.Client.Web.Pages
             public decimal Price { get; set; }
             public DateTime Date { get; set; }
             public List<Tags>? Tags { get; set; }
+            
+            public double? Weight { get; set; }
             
             public int Id { get; set; }
         }
@@ -107,8 +72,8 @@ namespace RoutePlanning.Client.Web.Pages
                 _ => ""
             };
         }
-        
-        
+
+      
     }
     
 }
