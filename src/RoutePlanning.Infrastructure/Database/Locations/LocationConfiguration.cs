@@ -10,7 +10,7 @@ public sealed class LocationConfiguration : IEntityTypeConfiguration<Location>
     {
         builder.HasKey(x => x.Id);
 
-        builder.HasMany(x => x.Connections).WithOne(x => x.Source);
+        builder.HasMany(x => x.Connections).WithOne(x => x.Origin);
 
         builder.Property(x => x.Name).HasMaxLength(256);
     }

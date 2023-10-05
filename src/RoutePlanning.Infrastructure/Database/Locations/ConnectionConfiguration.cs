@@ -4,9 +4,9 @@ using RoutePlanning.Domain.Locations;
 
 namespace RoutePlanning.Infrastructure.Database.Locations;
 
-public sealed class ConnectionConfiguration : IEntityTypeConfiguration<Connection>
+public sealed class ConnectionConfiguration : IEntityTypeConfiguration<Route>
 {
-    public void Configure(EntityTypeBuilder<Connection> builder)
+    public void Configure(EntityTypeBuilder<Route> builder)
     {
         builder.HasKey(x => x.Id);
 
