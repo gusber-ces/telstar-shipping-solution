@@ -1,11 +1,20 @@
-﻿namespace RoutePlanning.Domain.Locations.Services;
+﻿using Microsoft.EntityFrameworkCore;
 
-public class PriceService
+namespace RoutePlanning.Domain.Locations.Services;
+
+public static class PriceService
 {
-    private readonly IQueryable<Location> _routes;
-
-    public PriceService(IQueryable<Location> locations)
+    public static double CalculatePrice(Route route, Package package)
     {
-        _routes = locations;
+        double price = route.Distance * 3;
+        if (package.Recorded) { price += 10; }
+        
+        if (package.Categories.Contains(Category.LiveAnimals)) { price += price * 0.5; }
+
+        if (package.Categories.Contains(Category.CautiousParcels)) { price += price * 0.75; }
+
+        if (package.Categories.Contains(Category.RefrigeratedGoods)) { price += price * 0.1; }
+
+        return price;
     }
 }
