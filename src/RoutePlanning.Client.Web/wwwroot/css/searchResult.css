@@ -1,0 +1,100 @@
+﻿.locationContainer {
+    display: flex;
+    align-items: center;
+}
+.locationContainer span {
+    flex-grow: 1;
+}
+.locationDot, .smallDot {
+    border: 2px solid #000;
+    border-radius: 50%;
+    background-color: transparent; /* ensures the dot is not filled */
+    margin-right: 10px;
+}
+.locationDot {
+    width: 12px;
+    height: 12px;
+}
+.smallDot {
+    width: 6px;
+    height: 6px;
+    margin: 3px 0; /* spacing between the dots */
+}
+.dottedLine {
+    display: flex;
+    flex-direction: column; /* arranges the dots vertically */
+    justify-content: center;
+    height: 40px; /* adjust this if you want the dots spaced further or closer together */
+    margin-left: 3px;
+}
+
+.infTxt{
+    font-size: 1.2em;
+}
+
+.bottomPart{
+    margin-top: 10px;
+}
+
+.cardBtn{
+    font-size: 1.1em;
+    padding: 12px;
+    background-color:#003F87 ;
+}
+
+.tag {
+    display: block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: bold;
+    min-width: 45%;
+    width: 45%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.cheapest {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.fastest {
+    background-color: #2196F3; /* Blue */
+    color: white;
+}
+
+.telstarExclusive {
+    background-color: #FF5722; /* Red/Orange */
+    color: white;
+}
+
+
+#searchInfoBox{
+    font-weight: bolder;
+    font-size: 1.5em;
+    width: 100%;
+}
+
+.routeCard{
+    font-size: 1.2em;
+    background-color: white;
+    border: 1px solid darkgray;
+    box-shadow: 1px 1px;
+}
+
+@media (min-width: 641px) {
+    
+    
+    #locationName{
+        
+    }
+    
+    #searchInfoBox{
+        font-weight: bolder;
+        font-size: 1.5em;
+        width: 80%;
+    }
+    
+    
+}

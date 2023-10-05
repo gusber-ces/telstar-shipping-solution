@@ -21,7 +21,13 @@
                     TravelTime = "10 hours",
                     Category = "General",
                     Price = 100,
-                    Date = DateTime.Now
+                    Date = DateTime.Now,
+                    Tags = new List<Tags>
+                    {
+                        new Tags { tag = "Cheapest" },
+                        new Tags { tag = "Telstar exclusive" },
+                    }
+
                 },
                 new Route
                 {
@@ -35,7 +41,11 @@
                     TravelTime = "10 hours",
                     Category = "General",
                     Price = 100,
-                    Date = DateTime.Now
+                    Date = DateTime.Now,
+                    Tags = new List<Tags>
+                    {
+                        new Tags { tag = "Fastest" }
+                    }
                 }
             };
         }
@@ -47,11 +57,27 @@
             public string? Category { get; set; }
             public decimal Price { get; set; }
             public DateTime Date { get; set; }
+            public List<Tags>? Tags { get; set; }
         }
 
         public class Location
         {
             public string? Name { get; set; }
+        }
+        public class Tags
+        {
+            public string? tag { get; set; }
+        }
+
+        private static string GetTagClass(string? tagName)
+        {
+            return tagName switch
+            {
+                "Cheapest" => "cheapest",
+                "Fastest" => "fastest",
+                "Telstar exclusive" => "telstarExclusive",
+                _ => ""
+            };
         }
     }
 }
