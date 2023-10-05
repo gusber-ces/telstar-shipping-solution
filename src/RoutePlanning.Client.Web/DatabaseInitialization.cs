@@ -1,4 +1,5 @@
 ﻿using Netcompany.Net.UnitOfWork;
+using Npgsql;
 using RoutePlanning.Domain.Locations;
 using RoutePlanning.Domain.Users;
 using RoutePlanning.Infrastructure.Database;
@@ -26,17 +27,6 @@ public static class DatabaseInitialization
 
     private static async Task SeedLocationsAndRoutes(RoutePlanningDatabaseContext context)
     {
-        var berlin = new Location("Berlin");
-        await context.AddAsync(berlin);
-
-        var copenhagen = new Location("Copenhagen");
-        await context.AddAsync(copenhagen);
-
-        var paris = new Location("Paris");
-        await context.AddAsync(paris);
-
-        var warsaw = new Location("Warsaw");
-        await context.AddAsync(warsaw);
         var kapstaden = new Location("Kapstaden");
         await context.AddAsync(kapstaden);
 
@@ -119,17 +109,12 @@ public static class DatabaseInitialization
         await context.AddAsync(tanger);
 
         var cairo = new Location("Cairo");
-        await context.AddAsync(cairo);
 
         await context.SaveChangesAsync();
-
         
-        
-        CreateTwoWayConnection(berlin, warsaw, 573);
-        CreateTwoWayConnection(berlin, copenhagen, 763);
-        CreateTwoWayConnection(berlin, paris, 1054);
-        CreateTwoWayConnection(copenhagen, paris, 1362);
         CreateTwoWayConnection(kapstaden, hvalbugten, 4);
+        var kapHval = new Domain.Locations.Route(kapstaden, hvalbugten, 4);
+        await context.AddAsync(kapHval);
         CreateTwoWayConnection(hvalbugten, victoriafaldene, 4);
         CreateTwoWayConnection(victoriafaldene, dragebjerget, 3);
         CreateTwoWayConnection(victoriafaldene, mozambique, 5);

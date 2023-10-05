@@ -4,6 +4,7 @@ using Netcompany.Net.Logging.Serilog;
 using Netcompany.Net.UnitOfWork;
 using Netcompany.Net.Validation;
 using RoutePlanning.Application;
+using RoutePlanning.Domain.Locations.Services;
 using RoutePlanning.Infrastructure;
 
 namespace RoutePlanning.Client.Web;
@@ -28,6 +29,8 @@ public sealed class Program
         builder.Services.AddApiTokenAuthorization(builder.Configuration);
 
         builder.Host.ConfigureLoggingDefaults();
+        
+        builder.Services.AddScoped<SearchService>();
 
         var app = builder.Build();
 

@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using System.Runtime.Intrinsics.Arm;
+using Microsoft.AspNetCore.Components;
+using RoutePlanning.Domain;
+using RoutePlanning.Domain.Locations.Services;
 
 namespace RoutePlanning.Client.Web.Pages
 {
@@ -22,7 +25,7 @@ namespace RoutePlanning.Client.Web.Pages
         private DateTime DepartureTime { get; set; } = DateTime.Now;
         private DateTime ArrivalDeadline { get; set; } = DateTime.Now;
         private string Weight { get; set; } = "";
-        private string Category { get; set; } = "general";
+        private string Category { get; set; } = "LiveAnimals";
         private bool IsRecommended { get; set; } = false;
 
         // When you click Submit, for now just a placeholder function
@@ -57,6 +60,21 @@ namespace RoutePlanning.Client.Web.Pages
             FormData[4] = $"Height: {Height}, Length: {Length}, Depth: {Depth}"; // Combined dimensions
             FormData[5] = string.Join(", ", SelectedCategories); // Combined selected categories
             FormData[6] = IsRecommended;
+            
+            var categories = new List<Category>();
+        
+        
+            categories.Add(Domain.Category.LiveAnimals);
+
+            var p = SearchService.GetRoutes(Origin, Destination, ArrivalDeadline, new Package(
+                    new Dimensions(40, 0, 0, 0),
+                    categories,
+                    IsRecommended
+                )
+            );
+            Console.WriteLine(p);
+            // Placeholder: Here, you can process or store the FormData as needed
+            // For demonstration purposes, I'll just print the array to the console (useful for debugging)
 
             Console.WriteLine(string.Join(", ", FormData));
         }

@@ -21,7 +21,7 @@ public sealed class DistanceQueryhandler : IQueryHandler<DistanceQuery, int>
         var source = await _locations.FirstAsync(l => l.Id == request.SourceId, cancellationToken);
         var destination = await _locations.FirstAsync(l => l.Id == request.DestinationId, cancellationToken);
 
-        var distance = _shortestDistanceService.CalculateShortestDistance(source, destination);
+        var distance = _shortestDistanceService.CalculateShortestDistance(source, destination).Sum(c => c.Distance);
 
         return distance;
     }
