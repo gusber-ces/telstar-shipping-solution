@@ -9,7 +9,7 @@
 
 /* The form itself */
 form {
-    max-width: 400px; /* Limit the width */
+    max-width: 600px; /* Limit the width */
     width: 100%;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -24,7 +24,7 @@ form {
 }
 
 /* Common style for all inputs */
-input[type="text"], input[type="password"], select {
+input[type="text"], input[type="password"], input[type="datetime-local"], select {
     width: 100%;
     padding: 10px 15px;
     border: 1px solid #ccc;

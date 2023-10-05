@@ -42,6 +42,7 @@
     background-color:#003F87 ;
 }
 
+
 .tag {
     display: block;
     padding: 5px 10px;
@@ -74,7 +75,10 @@
     font-weight: bolder;
     font-size: 1.5em;
     width: 100%;
+    background-color: #D9E8FF;
 }
+
+
 
 .routeCard{
     font-size: 1.2em;
@@ -82,6 +86,14 @@
     border: 1px solid darkgray;
     box-shadow: 1px 1px;
     
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Makes sure the cards stack vertically */
+    width: 100%;
 }
 
 @media (min-width: 641px) {
@@ -92,14 +104,14 @@
         background-color: white;
         border: 1px solid darkgray;
         box-shadow: 1px 1px;
-        max-width: 70%;
+        width: 70%;
         
     }
     
     #searchInfoBox{
         font-weight: bolder;
         font-size: 1.5em;
-      
+        width: 70%;
     }
     
     

@@ -4,12 +4,12 @@
 @inject SearchService SearchService
 @inject IQueryable<Location> Locations
 
-<PageTitle>Search</PageTitle>
+<link href="css/SearchResult.css" rel="stylesheet" />
+<link href="css/inputs.css" rel="stylesheet" />
 
-<h1>Goods Transfer Form</h1>
+<div class="card-container">
+
     
-<form>
-
     <!-- Origin Dropdown -->
     <div class="form-group">
         <label for="originDropdown">Origin</label>
@@ -28,13 +28,13 @@
 
     <!-- Departure Time -->
     <div class="form-group">
-        <label for="departureTime">Departure time</label>
+        <label for="departureTime">Departure time</label> <br/>
         <input type="datetime-local" id="departureTime" @bind="DepartureTime"/>
     </div>
 
     <!-- Arrival Deadline -->
     <div class="form-group">
-        <label for="arrivalDeadline">Arrival deadline</label>
+        <label for="arrivalDeadline">Arrival deadline</label> <br/>
         <input type="datetime-local" id="arrivalDeadline" @bind="ArrivalDeadline"/>
     </div>
 
@@ -60,16 +60,16 @@
     
     
 
-   <div class="form-group">
-       <label>Categories</label>
-       @foreach (var category in Categories)
-       {
-           <div class="form-check">
-               <input type="checkbox" class="form-check-input" value="@category" @onchange="e => HandleCategoryChange(e, category)" checked="@SelectedCategories.Contains(category)" />
-               <label class="form-check-label">@category</label>
-           </div>
-       }
-   </div>
+    <div class="form-group">
+        <label>Categories</label>
+        @foreach (var category in Categories)
+        {
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" value="@category" @onchange="e => HandleCategoryChange(e, category)" checked="@SelectedCategories.Contains(category)" />
+                <label class="form-check-label">@category</label>
+            </div>
+        }
+    </div>
 
 
     <!-- Recommended Checkbox -->
@@ -79,5 +79,6 @@
     </div>
 
     <!-- Submit Button -->
-    <button class="btn btn-primary" @onclick="SubmitForm">Submit</button>
-</form>
+    <button class="btn btn-primary" @onclick="SubmitForm">Search</button>
+
+</div>

@@ -1,6 +1,7 @@
 ﻿@page "/searchresults"
 <link href="css/SearchResult.css" rel="stylesheet" />
 
+<div class="card-container">
 <div class="alert alert-info" id="searchInfoBox">
     @(((Routes ?? throw new InvalidOperationException()).First().Locations ?? throw new InvalidOperationException()).First().Name)
     &rarr;
@@ -9,6 +10,7 @@
     @Routes.First().Category
 </div>
 <br/><br/>
+
 @foreach (var route in Routes)
 {
     
@@ -64,4 +66,5 @@
         </div>
     </div>
 }
+</div>
 
