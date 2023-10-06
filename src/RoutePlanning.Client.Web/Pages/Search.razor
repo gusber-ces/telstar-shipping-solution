@@ -12,7 +12,7 @@
     <div class="form">
     <!-- Origin Dropdown -->
     <div class="form-group">
-        <label for="originDropdown">Origin</label>
+        <label for="originDropdown">Origin<span style="color: red;">*</span></label>
         <select id="originDropdown" @bind="Origin">
             @foreach(Location location in Locations.ToList()) {
                 <option value=@location.Name>@location.Name</option>
@@ -22,7 +22,7 @@
 
     <!-- Destination Dropdown -->
     <div class="form-group">
-        <label for="destinationDropdown">Destination</label>
+        <label for="destinationDropdown">Destination<span style="color: red;">*</span></label>
         <select id="destinationDropdown" @bind="Destination">
             @foreach(Location location in Locations.ToList()) {
                             <option value=@location.Name>@location.Name</option>
@@ -32,7 +32,7 @@
 
     <!-- Departure Time -->
     <div class="form-group">
-        <label for="departureTime">Departure time</label> <br/>
+        <label for="departureTime">Departure time</label><span style="color: red;">*</span> <br/>
         <input type="datetime-local" id="departureTime" @bind="DepartureTime"/>
     </div>
 
@@ -44,20 +44,20 @@
 
     <!-- Weight Input -->
     <div class="form-group">
-        <label for="weight">Weight</label>
+        <label for="weight">Weight<span style="color: red;">*</span></label>
         <input type="text" id="weight" @bind="Weight"/>
     </div>
     <div class="form-row">
         <div class="form-group ">
-            <label for="height">Height</label>
+            <label for="height">Height<span style="color: red;">*</span></label>
             <input type="text" id="height" @bind="Height" placeholder="Height" class="form-control"/>
         </div>
         <div class="form-group ">
-            <label for="length">Length</label>
+            <label for="length">Length<span style="color: red;">*</span></label>
             <input type="text" id="length" @bind="Length" placeholder="Length" class="form-control"/>
         </div>
         <div class="form-group">
-            <label for="depth">Depth</label>
+            <label for="depth">Depth<span style="color: red;">*</span></label>
             <input type="text" id="depth" @bind="Depth" placeholder="Depth" class="form-control"/>
         </div>
     </div>
@@ -65,7 +65,7 @@
     
 
     <div class="form-group">
-        <label>Categories</label>
+        <label>Categories<span style="color: red;">*</span></label>
         @foreach (var category in Categories)
         {
             <div class="form-check">
@@ -81,7 +81,8 @@
         <input type="checkbox" class="form-check-input" id="recommendedCheckbox" @bind="IsRecommended"/>
         <label class="form-check-label" for="recommendedCheckbox">Recommended goods</label>
     </div>
-
+    
+    <p><span style="color: red;">*</span> Indicates a mandatory field</p>
     <!-- Submit Button -->
     <button class="btn btn-primary" @onclick="SubmitForm">Search</button>
     </div>
