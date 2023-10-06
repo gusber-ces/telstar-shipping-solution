@@ -47,7 +47,7 @@ namespace RoutePlanning.Client.Web.Pages
         public double Length { get; set; }
         public double Depth { get; set; }
 
-        private List<string> Categories { get; set; } = new() { "General", "LiveAnimals","CautiousProducts", "RefrigeratedGoods" };
+        private List<string> Categories { get; set; } = new() { "LiveAnimals","CautiousProducts", "RefrigeratedGoods" };
         private List<string> SelectedCategories { get; set; } = new();
         private void HandleCategoryChange(ChangeEventArgs e, string category)
         {
