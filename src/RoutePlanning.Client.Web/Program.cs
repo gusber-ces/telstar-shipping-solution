@@ -5,6 +5,7 @@ using Netcompany.Net.UnitOfWork;
 using Netcompany.Net.Validation;
 using RoutePlanning.Application;
 using RoutePlanning.Domain.Locations.Services;
+using RoutePlanning.Domain.Users;
 using RoutePlanning.Infrastructure;
 
 namespace RoutePlanning.Client.Web;
@@ -31,6 +32,7 @@ public sealed class Program
         builder.Host.ConfigureLoggingDefaults();
         
         builder.Services.AddScoped<SearchService>();
+        builder.Services.AddScoped<UserService>();
 
         var app = builder.Build();
 

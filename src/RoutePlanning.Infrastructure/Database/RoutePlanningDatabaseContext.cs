@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RoutePlanning.Domain;
+using RoutePlanning.Domain.Users;
 
 namespace RoutePlanning.Infrastructure.Database;
 public sealed class RoutePlanningDatabaseContext : DbContext
@@ -8,6 +9,8 @@ public sealed class RoutePlanningDatabaseContext : DbContext
     { }
     
     public DbSet<Booking>? Bookings { get; set; }
+    
+    public DbSet<User>? Users { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
