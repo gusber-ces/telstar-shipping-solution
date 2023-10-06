@@ -33,12 +33,6 @@ public class SearchService
     {
         var originLocation = _locations.ToList().Find(l => l.Name == origin) ?? throw new NullReferenceException();
         var destinationLocation = _locations.ToList().Find(l => l.Name == destination) ?? throw new NullReferenceException();
-        
-        if (arrivalDeadline.Day == DateTime.Now.Day)
-        {
-            arrivalDeadline = DateTime.Today.AddDays(7);
-        }
-        
         if (package.Categories.Contains(Category.Weapons) || package.Dimensions.Weight > 40)
         {
             return new List<(Route, double)>();
@@ -49,8 +43,6 @@ public class SearchService
         {
             return new List<(Route, double)>();
         }
-
-        
 
         // Calculate the price for each route and return a tuple of Route and Price
         var routesWithPrice = shortestPath.Select(r => (route: r, price: PriceService.CalculatePrice(package, r.Distance)));
