@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using RoutePlanning.Domain.Users;
 
 namespace RoutePlanning.Client.Web.Pages
 {
@@ -22,6 +23,8 @@ namespace RoutePlanning.Client.Web.Pages
             FormData[2] = Name;
             FormData[3] = Phone;
             FormData[4] = Role;
+            
+            UserService.AddUser(new User(Username, Password));
             
 
             // Placeholder: Here, you can process or store the FormData as needed
